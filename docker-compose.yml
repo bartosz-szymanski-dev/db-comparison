@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  mysql:
+    container_name: mysql-db
+    image: mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: evp
+      MYSQL_USER: evp
+      MYSQL_PASSWORD: secret
+    ports:
+      - "9906:3306"
+
+  mongo:
+    container_name: mongo-db
+    image: mongo:focal
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_DATABASE: evp
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: secret
+    ports:
+      - "27017-27019:27017-27019"
+    volumes:
+      - ./mongo:/data/db
