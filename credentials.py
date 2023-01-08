@@ -1,0 +1,5 @@
+mongo_username = 'root'
+mongo_password = 'secret'
+mongo_host = 'localhost'
+mongo_port = '27017'
+mongo_database = 'evp'
