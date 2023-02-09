@@ -3,14 +3,8 @@ import mysql.connector
 
 def create_data_table(mysql_client):
     cursor = mysql_client.cursor()
-    cursor.execute('SHOW TABLES')
-    for table in cursor:
-        if table[0] == 'data':
-            print('[MySQL][info] "evp.data" table is already created, skipping creation')
-            return
-
-    print('[MySQL][info] "evp.data" table has not been created yet, creating it now')
-    cursor.execute(open('./evp.data.sql', 'r').read())
+    cursor.execute(open('./mysql_db/evp.data.sql', 'r').read())
+    cursor.execute(open('./mysql_db/evp.factories.sql', 'r').read())
 
 
 def get_connection():

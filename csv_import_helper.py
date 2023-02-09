@@ -14,3 +14,12 @@ def get_list_to_insert(process_row):
             process_row(list_to_insert, row)
             row_counter = row_counter + 1
     return list_to_insert
+
+
+def get_factories_to_insert(process_row):
+    factories_to_insert = []
+    with open('./factories.csv', 'r') as file:
+        csv_reader = csv.reader(file, delimiter=',')
+        for row in csv_reader:
+            process_row(factories_to_insert, row)
+        return factories_to_insert

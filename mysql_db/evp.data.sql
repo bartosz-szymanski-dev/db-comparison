@@ -1,6 +1,7 @@
-create table evp.data
+create table if not exists evp.data
 (
     id                                         BIGINT auto_increment,
+    indx                                       BIGINT null,
     vin                                        varchar(255) null,
     county                                     varchar(255) null,
     city                                       varchar(255) null,
