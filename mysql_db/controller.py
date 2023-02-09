@@ -4,6 +4,7 @@ import mysql_db.get_service as mysql_get_service
 import mysql_db.update_service as mysql_update_service
 import mysql_db.delete_service as mysql_delete_service
 import mysql_db.get_mod_3_service as mysql_get_mod_3_service
+import mysql_db.get_join_service as mysql_join_service
 
 
 def dispatch(chosen_db, chosen_action):
@@ -21,3 +22,5 @@ def dispatch(chosen_db, chosen_action):
         mysql_delete_service.run_benchmark(client)
     elif chosen_action == '5':
         mysql_get_mod_3_service.run_benchmark(client)
+    elif chosen_action == '6':
+        mysql_join_service.run_benchmark(client)

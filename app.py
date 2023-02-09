@@ -25,7 +25,8 @@ def build_action_choice_prompt():
              '2.Get all data\n\t' \
              '3.Update all data\n\t' \
              '4.Delete all data\n\t' \
-             '5.Get every 3rd row/document'
+             '5.Get every 3rd row/document\n\t' \
+             '6.Get join'
 
     return prompt + final_statement
 

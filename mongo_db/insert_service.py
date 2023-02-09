@@ -6,8 +6,10 @@ import mongo_db.collection_helper as data_collection_helper
 def run_benchmark(client):
     print('Benchmark name: MongoDB Insert All')
     list_to_insert = csv_import_helper.get_list_to_insert(process_row)
+    factories_to_insert = csv_import_helper.get_factories_to_insert(process_factory_row)
     start = time.time()
     data_collection_helper.get_data_collection(client).insert_many(list_to_insert)
+    data_collection_helper.get_factories_collection(client).insert_many(factories_to_insert)
     print('Query time: ' + str(round(time.time() - start, 2)) + 's')
     print('Rows inserted: ' + str(len(list_to_insert)))
 
@@ -39,4 +41,11 @@ def append_to_insert_list(list_to_insert, row):
         'vehicle_location': row[15],
         'electric_utility': row[16],
         'census_tract': row[17],
+    })
+
+
+def process_factory_row(list_to_insert, row):
+    list_to_insert.append({
+        'name': row[0],
+        'hash': row[1],
     })
