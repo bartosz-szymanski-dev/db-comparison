@@ -10,14 +10,16 @@ def dispatch(chosen_db, chosen_action):
     if chosen_db != '1':
         return
 
+    action = get_actions()[chosen_action]
     client = connection.get_connection()
-    if chosen_action == '1':
-        mongo_insert_service.run_benchmark(client)
-    elif chosen_action == '2':
-        mongo_get_service.run_benchmark(client)
-    elif chosen_action == '3':
-        mongo_update_service.run_benchmark(client)
-    elif chosen_action == '4':
-        mongo_delete_service.run_benchmark(client)
-    elif chosen_action == '5':
-        mongo_get_mod_3_service.run_benchmark(client)
+    action(client)
+
+
+def get_actions():
+    return {
+        '1': mongo_insert_service.run_benchmark,
+        '2': mongo_get_service.run_benchmark,
+        '3': mongo_update_service.run_benchmark,
+        '4': mongo_delete_service.run_benchmark,
+        '5': mongo_get_mod_3_service.run_benchmark,
+    }

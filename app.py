@@ -26,7 +26,7 @@ def build_action_choice_prompt():
              '3.Update all data\n\t' \
              '4.Delete all data\n\t' \
              '5.Get every 3rd row/document\n\t' \
-             '6.Get join'
+             '6.Get concatenating tables/collections'
 
     return prompt + final_statement
 

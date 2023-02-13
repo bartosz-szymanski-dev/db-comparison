@@ -11,16 +11,17 @@ def dispatch(chosen_db, chosen_action):
     if chosen_db != '2':
         return
 
+    action = get_actions()[chosen_action]
     client = connection.get_connection()
-    if chosen_action == '1':
-        mysql_import_service.run_benchmark(client)
-    elif chosen_action == '2':
-        mysql_get_service.run_benchmark(client)
-    elif chosen_action == '3':
-        mysql_update_service.run_benchmark(client)
-    elif chosen_action == '4':
-        mysql_delete_service.run_benchmark(client)
-    elif chosen_action == '5':
-        mysql_get_mod_3_service.run_benchmark(client)
-    elif chosen_action == '6':
-        mysql_join_service.run_benchmark(client)
+    action(client)
+
+
+def get_actions():
+    return {
+        '1': mysql_import_service.run_benchmark,
+        '2': mysql_get_service.run_benchmark,
+        '3': mysql_update_service.run_benchmark,
+        '4': mysql_delete_service.run_benchmark,
+        '5': mysql_get_mod_3_service.run_benchmark,
+        '6': mysql_join_service.run_benchmark,
+    }
