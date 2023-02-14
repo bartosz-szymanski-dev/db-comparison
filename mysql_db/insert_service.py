@@ -16,7 +16,6 @@ def run_benchmark(client):
         "%s, %s, %s, %s, %s, %s)",
         list_to_insert
     )
-    print(factories_to_insert)
     cursor.executemany(
         "INSERT INTO factories (id, name, hash) VALUES (NULL, %s, %s)",
         factories_to_insert

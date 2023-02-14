@@ -4,6 +4,7 @@ import mongo_db.get_service as mongo_get_service
 import mongo_db.update_service as mongo_update_service
 import mongo_db.delete_service as mongo_delete_service
 import mongo_db.get_mod_3_sevice as mongo_get_mod_3_service
+import mongo_db.get_concatenating_service as mongo_concatenating_service
 
 
 def dispatch(chosen_db, chosen_action):
@@ -22,4 +23,5 @@ def get_actions():
         '3': mongo_update_service.run_benchmark,
         '4': mongo_delete_service.run_benchmark,
         '5': mongo_get_mod_3_service.run_benchmark,
+        '6': mongo_concatenating_service.run_benchmark,
     }

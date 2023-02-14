@@ -4,7 +4,7 @@ import mysql_db.get_service as mysql_get_service
 import mysql_db.update_service as mysql_update_service
 import mysql_db.delete_service as mysql_delete_service
 import mysql_db.get_mod_3_service as mysql_get_mod_3_service
-import mysql_db.get_join_service as mysql_join_service
+import mysql_db.get_concatenating_service as mysql_join_service
 
 
 def dispatch(chosen_db, chosen_action):
